@@ -81,7 +81,7 @@ function App() {
         )}
 
         <section className="content">
-          {page === 'dashboard' && <Dashboard />}
+          {page === 'dashboard' && <Dashboard onNavigate={setPage} />}
           {page === 'container' && <Container />}
           {page === 'barco' && <Barco />}
           {page === 'transferencias' && <Transferencias />}
