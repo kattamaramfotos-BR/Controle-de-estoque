@@ -4,7 +4,7 @@ import { getDashboardStats } from '../lib/stock'
 import StatCard from '../components/StatCard'
 import SectionTitle from '../components/SectionTitle'
 
-export default function Dashboard() {
+export default function Dashboard({ onNavigate }) {
   const [stats, setStats] = useState({ container: 0, barco: 0, lowStock: 0, products: 0 })
   const [loading, setLoading] = useState(true)
 
@@ -44,8 +44,8 @@ export default function Dashboard() {
 
         <div className="panel quick-panel">
           <h3>Rotinas rápidas</h3>
-          <div className="quick-action"><Plus/><div><strong>Nova entrada</strong><span>Adicionar mercadoria ao Container</span></div></div>
-          <div className="quick-action"><ArrowRight/><div><strong>Nova transferência</strong><span>Enviar mercadoria ao Kattamaram II</span></div></div>
+          <button type="button" className="quick-action" onClick={() => onNavigate?.('entradas')}><Plus/><div><strong>Nova entrada</strong><span>Adicionar mercadoria ao Container</span></div></button>
+          <button type="button" className="quick-action" onClick={() => onNavigate?.('transferencias')}><ArrowRight/><div><strong>Nova transferência</strong><span>Enviar mercadoria ao Kattamaram II</span></div></button>
         </div>
       </div>
     </>
